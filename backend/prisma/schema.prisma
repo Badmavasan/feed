@@ -1,0 +1,321 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  auteur
+  admin
+  super_admin
+}
+
+enum ProjectRole {
+  auteur // Project Participants
+  editeur // Reviewers under the project (usually system admin)
+}
+
+enum ComponentType {
+  Text
+  Image
+  Code
+}
+
+enum ComponentNature {
+  technique
+  logos
+  exemple
+  erreur_pointée
+}
+
+enum ModerationStatus {
+  pending_review
+  approved
+  rejected
+  withdrawn
+}
+
+enum ActionType {
+  create
+  update
+  delete
+}
+
+enum ExerciseType {
+  CODE // Code question, enter the code for verification
+  QCM // Multiple choice questions
+  MULTI_QCM // Multiple Choice
+  FILL_IN_BLANK
+}
+
+// New project model
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  created_at  DateTime @default(now())
+
+  memberships ProjectMembership[]
+
+  creator_id Int
+  creator    User @relation("UserCreatedProjects", fields: [creator_id], references: [id])
+
+  taskTypes          TaskType[]
+  exercises          Exercise[]
+  errors             Error[]
+  feedbackComponents FeedbackComponent[]
+  feedbacks          Feedback[]
+  moderationRequests ModerationRequest[]
+  userPermissions    UserPermission[]
+}
+
+model ProjectMembership {
+  id         Int         @id @default(autoincrement())
+  user_id    Int
+  project_id Int
+  role       ProjectRole // auteur or editeur
+
+  user    User    @relation(fields: [user_id], references: [id])
+  project Project @relation(fields: [project_id], references: [id])
+
+  @@unique([user_id, project_id])
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password_hash String
+  name          String?
+  avatar_url    String?
+  role          Role     @default(auteur)
+  is_active     Boolean  @default(true)
+  created_at    DateTime @default(now())
+
+  moderationRequests ModerationRequest[] @relation("Requester")
+  reviewedRequests   ModerationRequest[] @relation("Reviewer")
+  permissions        UserPermission[]
+  memberships        ProjectMembership[]
+
+  projects_created Project[] @relation("UserCreatedProjects")
+
+  sentMessages     InternalMessage[] @relation("SentMessages")
+  receivedMessages InternalMessage[] @relation("ReceivedMessages")
+
+  moderationMessages ModerationMessage[]
+}
+
+model TaskType {
+  id        Int              @id @default(autoincrement())
+  task_code String           
+  task_name String
+  status    ModerationStatus @default(pending_review)
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  parentRelations       TaskTypeRelation[]            @relation("ParentTask")
+  subRelations          TaskTypeRelation[]            @relation("SubTask")
+  errorAssociations     TaskTypeErrorAssociation[]
+  exerciseAssociations  TaskTypeExerciseAssociation[]
+  componentAssociations ComponentTaskType[]
+  @@unique([project_id, task_code])
+}
+
+model TaskTypeRelation {
+  parent_task_id Int
+  sub_task_id    Int
+
+  parent TaskType @relation("ParentTask", fields: [parent_task_id], references: [id])
+  sub    TaskType @relation("SubTask", fields: [sub_task_id], references: [id])
+
+  @@id([parent_task_id, sub_task_id])
+}
+
+model Error {
+  id          Int              @id @default(autoincrement())
+  error_tag   String           
+  description String
+  status      ModerationStatus @default(pending_review)
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  taskTypeAssociations TaskTypeErrorAssociation[]
+  components           FeedbackComponent[]
+
+   @@unique([project_id, error_tag])
+  
+}
+
+model TaskTypeErrorAssociation {
+  task_type_id Int
+  error_id     Int
+
+  taskType TaskType @relation(fields: [task_type_id], references: [id])
+  error    Error    @relation(fields: [error_id], references: [id])
+
+  @@id([task_type_id, error_id])
+}
+
+model Exercise {
+  id            Int              @id @default(autoincrement())
+  title         String
+  description   String
+  correct_codes Json 
+  correct_texts Json 
+  type          ExerciseType     @default(CODE)
+  choices       Json? // QCM / MULTI_QCM
+  status        ModerationStatus @default(pending_review)
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  componentAssociations ComponentExercise[]
+  taskTypeAssociations  TaskTypeExerciseAssociation[]
+}
+
+model TaskTypeExerciseAssociation {
+  task_type_id Int
+  exercise_id  Int
+
+  taskType TaskType @relation(fields: [task_type_id], references: [id])
+  exercise Exercise @relation(fields: [exercise_id], references: [id])
+
+  @@id([task_type_id, exercise_id])
+}
+
+model FeedbackComponent {
+  id             Int              @id @default(autoincrement())
+  tag            String           
+  description    String?
+  type           ComponentType
+  content        String
+  content_format String?
+  nature         ComponentNature
+  error_id       Int?
+  error          Error?           @relation(fields: [error_id], references: [id])
+  status         ModerationStatus @default(pending_review)
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  exercises        ComponentExercise[]
+  taskTypes        ComponentTaskType[]
+  feedbackMappings FeedbackComponentsMapping[]
+
+  @@unique([project_id, tag])
+}
+
+model ComponentExercise {
+  component_id Int
+  exercise_id  Int
+
+  component FeedbackComponent @relation(fields: [component_id], references: [id])
+  exercise  Exercise          @relation(fields: [exercise_id], references: [id])
+
+  @@id([component_id, exercise_id])
+}
+
+model ComponentTaskType {
+  component_id Int
+  task_type_id Int
+
+  component FeedbackComponent @relation(fields: [component_id], references: [id])
+  taskType  TaskType          @relation(fields: [task_type_id], references: [id])
+
+  @@id([component_id, task_type_id])
+}
+
+model Feedback {
+  id            Int              @id @default(autoincrement())
+  feedback_code String           
+  description   String?
+  status        ModerationStatus @default(pending_review)
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  mappings FeedbackComponentsMapping[]
+
+  @@unique([project_id, feedback_code])
+}
+
+model FeedbackComponentsMapping {
+  feedback_id  Int
+  component_id Int
+  position     Int
+
+  feedback  Feedback          @relation(fields: [feedback_id], references: [id])
+  component FeedbackComponent @relation(fields: [component_id], references: [id])
+
+  @@id([feedback_id, component_id])
+}
+
+model ModerationRequest {
+  id           Int              @id @default(autoincrement())
+  requester_id Int
+  entity_type  String // 'taskType', 'error', 'exercise', 'component', 'feedback'
+  entity_id    Int? // Can be null (not yet generated when created)
+  payload      Json? // Specific content submitted by users
+  action_type  ActionType
+  status       ModerationStatus @default(pending_review)
+  reason       String?
+  created_at   DateTime         @default(now())
+  reviewed_by  Int?
+  reviewed_at  DateTime?
+
+  project_id Int
+  project    Project @relation(fields: [project_id], references: [id])
+
+  requester User  @relation("Requester", fields: [requester_id], references: [id])
+  reviewer  User? @relation("Reviewer", fields: [reviewed_by], references: [id])
+
+  messages ModerationMessage[]
+}
+
+model UserPermission {
+  id         Int     @id @default(autoincrement())
+  user_id    Int
+  project_id Int
+  module     String // e.g., 'taskType', 'error', 'exercise', 'feedbackComponent', 'feedback'
+  can_create Boolean @default(false)
+  can_update Boolean @default(false)
+  can_delete Boolean @default(false)
+
+  user    User    @relation(fields: [user_id], references: [id])
+  project Project @relation(fields: [project_id], references: [id])
+
+  @@unique([user_id, project_id, module], name: "user_id_project_id_module")
+}
+
+model InternalMessage {
+  id         Int      @id @default(autoincrement())
+  senderId   Int
+  receiverId Int
+  subject    String
+  content    String
+  isRead     Boolean  @default(false)
+  imageUrl   String? // Single image
+  fileUrls   Json   // Multiple file paths
+  createdAt  DateTime @default(now())
+
+  sender   User @relation("SentMessages", fields: [senderId], references: [id])
+  receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id])
+}
+
+model ModerationMessage {
+  id              Int      @id @default(autoincrement())
+  content         String
+  createdAt       DateTime @default(now())
+  isSystemMessage Boolean  @default(false)
+
+  senderId Int
+  sender   User @relation(fields: [senderId], references: [id])
+
+  moderationId Int
+  moderation   ModerationRequest @relation(fields: [moderationId], references: [id])
+}

@@ -1,0 +1,32 @@
+{
+  "name": "feedback-management-backend",
+  "version": "1.0.0",
+  "description": "Node.js project with Sequelize and Docker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "prisma generate",
+    "typeorm": "typeorm",
+    "migration:generate": "npm run typeorm migration:generate -- -d src/data-source.js src/migration/Init",
+    "migration:run": "npm run typeorm migration:run -- -d src/data-source.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.9.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.3",
+    "pg": "^8.0.0",
+    "prisma": "^6.9.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "typeorm": "^0.3.0",
+    "xlsx": "^0.18.5"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}

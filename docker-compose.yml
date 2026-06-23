@@ -1,0 +1,59 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: feedback_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-feedback}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-feedback}
+      POSTGRES_DB: ${POSTGRES_DB:-feedback}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5433}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-feedback} -d ${POSTGRES_DB:-feedback}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  backend:
+    build: ./backend
+    container_name: feedback_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-feedback}:${POSTGRES_PASSWORD:-feedback}@db:5432/${POSTGRES_DB:-feedback}?schema=public
+      PORT: 3001
+      JWT_SECRET: ${JWT_SECRET:-supersecret_change_me}
+      CORS_ORIGIN: ${FRONTEND_URL:-http://localhost:3300}
+      API_BASE_URL: ${BACKEND_PUBLIC_URL:-http://localhost:3301}
+      DEFAULT_USER_PASSWORD: ${DEFAULT_USER_PASSWORD:-123456}
+      EMAIL_USER: ${EMAIL_USER:-}
+      EMAIL_PASS: ${EMAIL_PASS:-}
+    ports:
+      - "${BACKEND_PORT:-3301}:3001"
+    volumes:
+      - ./backend/uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${BACKEND_PUBLIC_URL:-http://localhost:3301}
+        BACKEND_INTERNAL_URL: http://backend:3001
+    container_name: feedback_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      # Server-side rewrite target (inside the docker network)
+      BACKEND_INTERNAL_URL: http://backend:3001
+      NEXT_PUBLIC_API_BASE_URL: ${BACKEND_PUBLIC_URL:-http://localhost:3301}
+    ports:
+      - "${FRONTEND_PORT:-3300}:3000"
+
+volumes:
+  db_data:

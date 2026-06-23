@@ -1,0 +1,721 @@
+{
+  "welcome": "Bienvenue !",
+
+
+"login": {
+    "heading": "Feedback Editor for Education",
+    "title": "Connexion",
+    "subtitle": "Connectez-vous à votre espace personnel",
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "votre adresse email",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "votre mot de passe",
+    "remember": "Se souvenir de moi",
+    "button": "Se connecter",
+    "noAccount": "Vous n'avez pas encore de compte ?",
+    "register": "Rejoindre maintenant",
+    "error": "Erreur de connexion",
+    "success": "Connexion réussie",
+    "missingFields": "Veuillez remplir l'email et le mot de passe",
+    "invalidCredentials": "Email ou mot de passe incorrect",
+    "userInactive": "Compte désactivé. Veuillez contacter l’administrateur.",
+    "unknownError": "Erreur inconnue"
+  },
+  "logout": "Déconnexion",
+  "dashboard": {
+    "taskTypes": "Tâches",
+    "taskTypesHelp": "Créés ou associés",
+    "errors": "Erreurs",
+    "errorsHelp": "Avec feedback",
+    "exercises": "Exercices",
+    "exercisesHelp": "Ajoutés",
+    "feedbackComponents": "Composants de feedback",
+    "feedbackComponentsHelp": "Créés",
+    "feedbacks": "Feedbacks",
+    "feedbacksHelp": "Total enregistrés",
+    "heading": "Bienvenue sur FEED – Feedback Editor for Education",
+    "description": "Voici un aperçu global de vos contributions et éléments enregistrés sur la plateforme.",
+    "totalFeedback": "Feedbacks reçus",
+    "sinceLastWeek": "Depuis la semaine dernière",
+    "types": "Types de tâche",
+    "typesHelp": "Créés ou associés",
+    "components": "Composants de feedback",
+    "componentsHelp": "Créés"
+  },
+  "sidebar": {
+    "home": "Accueil",
+    "taskType": "Tâche",
+    "error": "Erreur",
+    "exercise": "Exercice",
+    "component": "Composant",
+    "feedback": "Feedback",
+    "myRequests": "Mes demandes",
+    "allRequests": "Les demandes",
+    "userManagement": "Gestion des utilisateurs",
+    "requestManagement": "Gestion des demandes",
+    "projectManagement": "Gestion des projects"
+  },
+  "demandes": {
+    "search": "Rechercher...",
+    "type": "Type",
+    "content": "Contenu",
+    "date": "Date",
+    "status": "Statut",
+    "statuses": {
+      "en attente": "En attente",
+      "validée": "Validée",
+      "refusée": "Refusée"
+    },
+    "actions": "Actions",
+    "validate": "Valider",
+    "reject": "Refuser",
+    "done": "Déjà traité",
+    "toast": {
+      "validated": "Demande validée.",
+      "rejected": "Demande refusée."
+    }
+  },
+
+
+  "type": {
+    "title": "Gestion des tâches",
+    "searchPlaceholder": "Rechercher par TâcheTag ou Nom",
+    "create": "Créer une tâche",
+    "id": "TâcheTag",
+    "name": "Nom",
+    "taskId": "TâcheTag",
+    "taskTag": "TâcheTag",
+    "showTree": "Afficher l'arborescence",
+    "backToDetails": "Retour aux détails",
+
+    "actions": "Actions",
+    "createSuccess": "Créé avec succès",
+    "deleteSuccess": "Supprimé avec succès",
+    "idUsed": "TâcheID déjà utilisé",
+    "createModalTitle": "Créer une tâche",
+    "editModalTitle": "Modifier la tâche",
+    "viewModalTitle": "Détails de la tâche",
+    "confirmDelete": "Confirmer la suppression",
+    "linkedTo": "Ce type est lié à",
+    "subTypes": "Tâches enfants",
+    "editSubTypes": "Modifier les sous-types",
+    "errors": "Erreurs associées",
+    "editErrors": "Modifier les erreurs",
+    "noSubtypes": "Aucun sous-type",
+    "noErrors": "Aucune erreur associée",
+    "deleteNotice": "Les données liées ne seront pas supprimées, seulement désassociées.",
+    "exercises": "Exercices",
+    "components": "Composants",
+
+    "parentType": "Tâche parente",
+    "exercicesAssocies": "Exercices associés",
+    "composantsAssocies": "Composants de feedback associés",
+    "none": "Aucun élément associé",
+
+    "taskIdHelp": "Identifiant unique de la tâche, ex: B1.2.1",
+    "nameHelp": "Nom lisible de la tâche. Exemple : Utiliser une boucle bornée pour calculer une somme.",
+    "parentTypeHelp": "Tâche parente directe de celle-ci, si elle existe.",
+    "subTypesHelp": "Tâches directement dérivées de cette tâche, formant une hiérarchie pédagogique.",
+    "errorsHelp": "Erreurs pédagogiques que cette tâche permet d'observer.",
+    "exercicesAssociesHelp": "Exercices qui sont liés à cette tâche.",
+    "composantsAssociesHelp": "Composants de feedback associés à cette tâche."
+  },
+  "form": {
+    "noResult": "Aucun résultat trouvé",
+    "required": "Ce champ est obligatoire",
+    "view": "Voir",
+    "edit": "Modifier",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "create": "Créer",
+    "searchPlaceholder": "Sélectionner...",
+    "correct": "Correct",
+    "incorrect": " Incorrect",
+
+    "none": "Aucun",
+    "associatedError": "Erreurs associées",
+    "associatedExercises": "Exercices associés",
+    "associatedTypes": "Tâches associées",
+
+    "type": {
+      "requiredFields": "Les champs obligatoires ne peuvent pas être vides",
+      "subTypes": "Sous-types",
+      "errors": "Erreurs",
+      "create": "Créer",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "save": "Enregistrer",
+      "close": "Fermer",
+      "delete": "Supprimer",
+      "view": "Voir",
+      "searchPlaceholder": "Rechercher...",
+      "noResult": "Aucun résultat",
+      "selected": "sélectionné(s)",
+      "required": "Ce champ est obligatoire"
+    },
+    "error": {
+      "required": "Ce champ est obligatoire",
+      "view": "Voir",
+      "edit": "Modifier",
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "close": "Fermer",
+      "create": "Créer",
+      "selectPlaceholder": "Sélectionner..."
+    },
+    "exercise": {
+      "required": "Ce champ est obligatoire",
+      "atLeastOneCode": "Veuillez ajouter au moins un code correct",
+      "addCode": "Ajouter un code",
+      "removeCode": "Supprimer ce code",
+      "searchPlaceholder": "Rechercher...",
+      "noResult": "Aucun résultat",
+      "selected": "sélectionné(s)"
+    },
+
+    "feedback": {
+      "feedbackTag": "ID du feedback",
+      "description": "Description",
+      "actions": "Actions",
+      "required": "Ce champ est obligatoire",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires",
+      "atLeastOneComponent": "Veuillez sélectionner au moins un composant",
+      "associatedError": "Erreurs associées",
+      "associatedExercises": "Exercices associés",
+      "associatedTypes": "Types de tâche associés",
+      "none": "Aucun",
+      "view": "Voir",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "create": "Créer",
+      "cancel": "Annuler",
+      "close": "Fermer"
+    }
+  },
+  "toast": {
+    "type": {
+    "editSuccess": "Modifié avec succès."
+    },
+    "error": {
+      "createSuccess": "Création réussie",
+      "createSubmitted": "Demande de création soumise pour approbation",
+      "editSuccess": "Modification réussie",
+      "editSubmitted": "Demande de modification soumise pour approbation",
+      "deleteSuccess": "Suppression réussie",
+      "deleteSubmitted": "Demande de suppression soumise pour approbation"
+    },
+
+    "exercise": {
+
+    },
+    "composant": {
+      "createSuccess": "Créé avec succès",
+      "editSuccess": "Modifié avec succès",
+      "deleteSuccess": "Supprimé avec succès"
+
+    },
+
+    "feedback": {
+      "createSuccess": "Feedback créé avec succès",
+      "editSuccess": "Feedback modifié avec succès",
+      "deleteSuccess": "Feedback supprimé avec succès"
+
+    }
+
+  },
+
+
+  "error": {
+    "title": "Gestion des erreurs",
+    "create": "Créer une erreur",
+    "tag": "Tag",
+    "description": "Description",
+    "actions": "Actions",
+    "tagHelp": "Identifiant court de l'erreur. Ex : absence-boucle",
+    "descriptionHelp": "Description pédagogique de l'erreur observée chez l'élève.",
+    "associatedTypesHelp": "Sélectionnez les tâches où cette erreur peut apparaître.",
+    "searchPlaceholder": "Rechercher par Tag ou Description",
+    "createModalTitle": "Créer une nouvelle erreur",
+    "editModalTitle": "Modifier l'erreur",
+    "deleteConfirmTitle": "Confirmer la suppression",
+    "deleteConfirmText": "Êtes-vous sûr de vouloir supprimer cette erreur ?",
+    "detailModalTitle": "Détails de l'erreur",
+    "associatedTypes": "Tâches associés",
+    "none": "Aucun type associé",
+    "tagUsed": "Cette étiquette est déjà utilisée",
+    "confirmDelete": "Confirmer la suppression",
+    "importModalTitle": "Importer un fichier",
+    "importInstructions": "Veuillez d'abord télécharger le modèle, puis remplissez-le et importez-le ici.",
+    "downloadTemplate": "Télécharger le modèle",
+    "selectFile": "Choisir un fichier à importer",
+    "importFile": "Importer un fichier",
+    "downloadTemplateSuccess": "Modèle téléchargé avec succès",
+    "form":{
+        "import": "Importer",
+        "cancel": "Annuler"
+      },
+
+    "toast": {
+      "importSuccess": "Importation terminée",
+      "importFailed": "Échec de l'importation",
+      "importResult": "{{created}} éléments importés avec succès, {{skipped}} ignorés{{reason}}",
+      "reason": {
+        "duplicateTag": " (raison de l'ignorance : Tag en double)"
+      },
+      "invalidFileType": "Type de fichier non pris en charge. Veuillez télécharger un fichier .xlsx, .xls ou .csv.",
+      "fileTooLarge": "Fichier trop volumineux. La taille maximale autorisée est de 2 Mo."
+    }
+
+
+  },
+
+
+  "exercise": {
+    "titleLabel": "Gestion des exercices",
+    "descriptionLabel": "Description",
+    "create": "Créer une exercice",
+    "correctCodes": "correctCodes",
+    "selectPlaceholder": "Rechercher...",
+
+    "actions": "Actions",
+    "managementTitle": "Gestion des exercices",
+    "createTitle": "Créer un exercice",
+    "createModalTitle": "Créer un exercice",
+    "editModalTitle": "Modifier un exercice",
+    "confirmDelete": "Confirmer la suppression",
+    "detailsTitle": "Détails de l'exercice",
+    "title": "Titre",
+    "description": "Description",
+    "type": "Type",
+    "answersTooltip": "Réponses pour un exercice de type {{type}}",
+    "correctCode": "Code correct",
+    "answers": "Réponses attendues",
+    "taskTypes": "Tâches associés",
+    "selectTypes": "Sélectionner les types de tâche",
+    "createBtn": "Créer",
+    "editBtn": "Enregistrer",
+    "cancelBtn": "Annuler",
+    "deleteBtn": "Supprimer",
+    "closeBtn": "Fermer",
+    "searchPlaceholder": "Rechercher par Titre ou Description",
+    "deleteWarning": "La suppression de cet exercice supprimera les associations avec les types suivants :",
+    "associatedTypes": "Types associés",
+    "none": "Aucun",
+    "view": "Voir",
+
+    "titleHelp": "Titre de l'exercice, visible par les élèves. Exemple : Somme d’un tableau.",
+    "descriptionHelp": "Consigne détaillée de l’exercice. Décrivez ce que l’élève doit faire.",
+    "typeHelp": "Type de l'exercice : question de code, choix unique ou choix multiple.",
+    "taskTypeHelp": "Sélectionnez les types de tâches associés à cet exercice. Ils aident à identifier les erreurs possibles.",
+
+    "exType": {
+      "CODE": "Question de programmation",
+      "QCM": "Choix unique",
+      "MULTI_QCM": "Choix multiples",
+      "FILL_IN_BLANK": "Remplir les blancs"
+    },
+    "correctTexts": "Réponses attendues",
+    "addAnswer": "Ajouter une réponse",
+    "addCode": "Ajouter une réponse en code",
+    "addChoice": "Ajouter un choix",
+    "choices": "Choix",
+
+    "createSuccess": "Création réussie",
+    "editSuccess": "Modification réussie",
+    "deleteSuccess": "Suppression réussie"
+
+
+
+  },
+
+  "component": {
+    "title": "Gestion des composants de feedback",
+    "createButton": "Créer un composant de feedback",
+    "tag": "Tag",
+    "description": "Description",
+    "type": "Type",
+    "nature": "Nature",
+    "createTitle": "Créer un composant",
+    "editTitle": "Modifier un composant",
+    "deleteTitle": "Confirmation de suppression",
+    "deleteConfirmText": "Êtes-vous sûr de vouloir supprimer ce composant ?",
+    "detailModalTitle": "Détails du composant",
+    "tagUsed": "Ce tag est déjà utilisé",
+    "searchPlaceholder": "Rechercher par Tag ou Description",
+    "pointedError": "Erreur pointée",
+    "associatedExercises": "Exercices associés",
+    "associatedTypes": "Tâches associés",
+
+    "form": {
+      "feedbackReferences": "Feedbacks associés à ce composant",
+      "feedbackReferencesHelp": "Si ce composant est utilisé dans des feedbacks, les feedbacks correspondants seront affichés ici.",
+      "textPlaceholder": "Écrivez votre texte ici...",
+      "tag": "Tag",
+      "description": "Description",
+      "type": "Type",
+      "text": "Texte",
+      "image": "Image",
+      "imageFormatOrResolutionInvalid": "Format d'image invalide ou résolution trop faible. Seuls JPG, PNG, GIF sont acceptés avec une résolution minimale de 300x300.",
+      "code": "Code",
+      "content": "Contenu",
+      "nature": "Nature",
+
+      "associatedExercises": "Exercices associés",
+      "associatedTypes": "Tâches associés",
+      "required": "Ce champ est obligatoire",
+      "create": "Créer",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "view": "Voir",
+      "actions": "Actions",
+      "searchPlaceholder": "Rechercher par tag ou description",
+
+      "delete": "Supprimer",
+      "codeLabel": "Tag",
+      "codeHelp": "Vous pouvez saisir ici un extrait de code. Le langage peut être sélectionné à droite (ex. Python, JavaScript, etc.).",
+
+
+      "descriptionHelp": "Description interne facultative du composant.",
+
+      "typeHelp": "Type de contenu : texte, image ou code.",
+
+      "contentHelp": "Le contenu réel du composant selon son type.",
+
+      "natureHelp": "Nature sémantique du composant (ex. technique, exemple, erreur).",
+
+      "associatedErrorHelp": "Erreur ciblée par ce composant.",
+      "associatedTypesHelp": "Types de tâches associés à ce composant.",
+
+      "associatedExercisesHelp": "Exercices dans lesquels ce composant peut apparaître.",
+      "none": "Aucun",
+
+      "editTitle": "Modifier un composant",
+      "createTitle": "Créer un composant",
+      "textHelp": "Contenu textuel du composant.",
+      "imageHelp": "Téléversez une image illustrant le composant. Max: 2 Mo, formats JPG / PNG.",
+      "imageNote": "Formats acceptés : JPG / PNG, taille maximale 2 Mo"
+
+    },
+    "typeOptions": {
+      "text": "Texte",
+      "image": "Image",
+      "code": "Code"
+    },
+
+    "natureOptions": {
+      "technique": "Technique",
+      "logos": "Logos",
+      "exemple": "Exemple"
+    }
+
+  },
+
+
+
+  "feedback": {
+    "tag": "Tag",
+    "description": "Description",
+    "searchPlaceholder": "Rechercher par Tag ou Description",
+    "createButton": "Créer un feedback",
+  "title": "Gestion des feedbacks",
+  "createTitle": "Créer un feedback",
+  "editTitle": "Modifier un feedback",
+  "detailTitle": "Détails du feedback",
+  "id": "ID du feedback",
+    "codeLabel": "FeedbackTag",
+    "codeHelp": "Identifiant du feedback. Doit être unique.",
+    "descriptionLabel": "Description",
+    "descriptionHelp": "Brève description du feedback (optionnel).",
+    "componentsLabel": "Composants de feedback",
+
+    "orderLabel": "Ordre",
+    "orderHelp": "Réorganisez les composants dans l’ordre souhaité.",
+
+    "componentsHelp": "Composants utilisés dans ce feedback, dans l'ordre.",
+    "errorsHelp": "Erreurs pointées par ce feedback.",
+    "exercisesHelp": "Exercices où ce feedback est applicable.",
+    "typesHelp": "Tâches liées à ce feedback.",
+
+  "components": "Composants sélectionnés",
+  "preview": "Aperçu (glisser pour trier)",
+  "associatedError": "Erreurs associées",
+  "associatedExercises": "Exercices associés",
+  "associatedTypes": "Types de tâches associés",
+  "deleteConfirmTitle": "Confirmation de suppression",
+  "deleteConfirmText": "Êtes-vous sûr de vouloir supprimer le feedback « {{id}} » ?"
+  },
+
+  "settings": {
+    "title": "Paramètres et préférences",
+    "subtitle": "Personnalisez votre expérience.",
+    "darkMode": "Mode sombre",
+    "notifications": "Activer les notifications",
+    "save": "Enregistrer",
+    "toast": {
+      "title": "Paramètres enregistrés",
+      "description": "Vos préférences ont été sauvegardées avec succès."
+    }
+  },
+
+
+  "requests": {
+    "title": "Gestion des demandes en attente",
+    "taskId": "ID de la tâche",
+    "name": "Nom",
+    "type": "Type de requête",
+    "requestedBy": "Demandé par",
+    "status": "Statut",
+    "empty": "Aucune demande en attente.",
+    "approved": "Demande approuvée",
+    "rejected": "Demande rejetée"
+  },
+  "common": {
+    "actions": "Actions",
+    "approve": "Approuver",
+    "reject": "Refuser",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "submit": "Valider",
+    "close": "Fermer",
+
+    "save": "Enregistrer",
+    "delete": "Supprimer"
+  },
+
+
+  "user": {
+    "title": "Gestion des demandes utilisateur",
+
+    "create": "Créer un utilisateur",
+
+  "systemUsers": "Utilisateurs système",
+  "projectMembers": "Membres du projet",
+
+    "permissionTitle": "Permissions dans ce projet",
+    "detailsTitle": "Détails de l'utilisateur",
+
+  "name": "Nom",
+  "email": "Email",
+  "role": "Rôle",
+  "active": "Actif",
+  "permissions": "Permissions",
+
+  "searchPlaceholder": "Rechercher par nom ou email",
+  "createUser": "Créer un utilisateur",
+  "editPermissionsTitle": "Modifier les permissions",
+  "defaultPassword": "Mot de passe par défaut",
+  "created": "Utilisateur créé",
+  "deleted": "Utilisateur supprimé",
+
+  "noProjects": "Aucun projet associé.",
+  "noPermissions": "Aucune permission disponible.",
+  "emailTooltip": "Adresse email unique utilisée pour se connecter.",
+  "roleTooltip": "Rôle de l'utilisateur dans le système. Définit ses permissions.",
+  "projectTooltip": "Projets auxquels l'utilisateur appartient.",
+
+    "permissionsHelp": "Indique si l'utilisateur a le droit de créer, modifier ou supprimer dans chaque module.",
+
+  "confirmDeleteTitle": "Confirmer la suppression",
+  "confirmDeleteText": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+  "associatedProjects": "Projets associés :",
+  "toggleActiveConfirm": "Activer/Désactiver {{name}} ?",
+
+  "permissionsTitle": "Permissions de l'utilisateur",
+  "detailLoadError": "Erreur lors du chargement des détails de l'utilisateur",
+  "loadError": "Erreur lors du chargement des utilisateurs",
+  "permissionLoadError": "Erreur lors du chargement des permissions",
+  "permissionSaved": "Permissions enregistrées",
+  "permissionSaveError": "Erreur lors de l'enregistrement des permissions",
+  "projectCheckError": "Erreur lors de la vérification des projets",
+
+    "activate": "Activer",
+    "deactivate": "Désactiver",
+    "confirmActivate": "Activer {{name}} ?",
+    "confirmDeactivate": "Désactiver {{name}} ? L'utilisateur ne pourra plus se connecter.",
+
+    "project": {
+      "label": "Projet",
+      "selectPlaceholder": "Sélectionner un projet",
+      "loadError": "Erreur lors du chargement des projets",
+      "tooltip": "Sélectionnez un projet auquel l’éditeur a rejoint. Cela permet de gérer les permissions des auteurs dans ce projet."
+    },
+
+    "form":{
+      "required": "Ce champ est requis.",
+      "missingFields": "Champs obligatoires manquants",
+      "nameEmailRequired": "Le nom et l'email sont requis.",
+      "invalidEmail": "Email invalide",
+      "enterValidEmail": "Veuillez saisir une adresse email valide."
+    },
+
+
+    "action":{
+      "create": "Créer",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "close": "Fermer"
+    },
+
+"table":{
+  "actions": "Actions"
+},
+
+    "pagination":{
+      "prev": "Précédent",
+      "next": "Suivant"
+    },
+
+    "permission": {
+      "create": "Créer",
+      "update": "Modifier",
+      "delete": "Supprimer"
+    },
+    "module": {
+      "taskType": "Type de tâche",
+      "error": "Erreur",
+      "exercise": "Exercice",
+      "component": "Composant de feedback",
+      "feedback": "Feedback"
+    },
+    "error": {
+      "title": "Erreur",
+      "serverError": "Erreur du serveur"
+    }
+  },
+
+
+  "guide": {
+    "backToDashboard": "Retour au tableau de bord",
+    "title": "Guide utilisateur FEED",
+    "intro": "Apprenez à utiliser FEED pour gérer les exercices, les erreurs et les feedbacks.",
+    "taskType": {
+      "title": "Types de tâches",
+      "desc": "Les catégories d'exercices (ex : Programmation, QCM).",
+      "example": "Ex : Créez un type 'Défi de codage' pour des exercices de programmation."
+    },
+    "exercise": {
+      "title": "Exercices",
+      "desc": "Questions proposées aux étudiants.",
+      "example": "Ex : 'Écrire une fonction qui calcule la factorielle d’un nombre.'"
+    },
+    "error": {
+      "title": "Erreurs",
+      "desc": "Problèmes rencontrés dans les réponses des étudiants.",
+      "example": "Ex : 'Boucle infinie car manque de condition d'arrêt.'"
+    },
+    "feedback": {
+      "title": "Feedback",
+      "desc": "Conseils ou explications donnés suite à une erreur.",
+      "example": "Ex : 'Essayez d’utiliser une boucle for avec une borne supérieure.'"
+    },
+    "component": {
+      "title": "Composants de feedback",
+      "desc": "Éléments réutilisables comme textes, images ou extraits de code.",
+      "example": "Ex : Ajouter un code corrigé ou une capture d’écran explicative."
+    },
+    "user": {
+      "title": "Utilisateurs",
+      "desc": "Gérez les rôles et accès des membres.",
+      "example": "Ex : Un auteur peut créer des exercices, un admin peut tout gérer."
+    },
+    "project": {
+      "title": "Projets",
+      "desc": "Ensemble cohérent d’exercices et de membres.",
+      "example": "Ex : Projet Python – Tous les exercices et feedbacks liés au cours de Python."
+    },
+    "relationshipsTitle": "Relations entre les modules",
+    "relationshipsExplanation": "Chaque exercice appartient à un type de tâche, peut contenir des erreurs, recevoir des feedbacks, et être lié à un projet.",
+    "relationshipExample": "Ex : Type → Exercice → Erreur → Feedback "
+  },
+
+
+  "messages": {
+    "Submitted for moderation": "Soumis pour modération",
+    "Exercise created": "Création réussie",
+    "Exercise updated": "Modification réussie",
+    "Exercise deleted": "Suppression réussie"
+  },
+
+  "request": {
+    "title": "Les demandes",
+    "all": "Toutes",
+    "pending": "En attente",
+    "approved": "Validées",
+    "rejected": "Refusées",
+    "submittedBy": "Soumis par",
+    "verify": "Vérifier",
+    "type": "Type",
+    "user": "Utilisateur",
+    "content": "Contenu",
+    "date": "Date",
+    "status": {
+      "label": "Statut",
+      "en attente": "En attente",
+      "validée": "Validée",
+      "refusée": "Refusée",
+      "retirée": "Retirée par l’auteur"
+    },
+
+    "detailTitle": "Détails de la demande",
+    "rejectReasonPlaceholder": "Raison du refus (obligatoire)",
+    "approve": "Approuver",
+    "reject": "Refuser",
+    "confirmReject": "Confirmer le refus",
+
+    "myRequests": "Mes demandes",
+    "allRequests": "Toutes mes demandes",
+    "withdrawn": "retirée",
+    "viewDetails": "Voir les détails",
+    "withdraw": "Retirer",
+    "noSelection": "Aucune demande sélectionnée.",
+    "detailsTitle": "Détails de la demande",
+    "close": "Fermer",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "pageInfo": "Page {{current}} / {{total}}",
+    "validée": "validée",
+    "refusée": "refusée",
+    "retirée": "retirée",
+    "en attente": "en attente"
+  },
+
+  "pagination": {
+    "prev": "Précédent",
+    "next": "Suivant"
+  },
+
+
+
+  "project":{
+  "title": "Gestion des projets",
+  "create": "Créer un projet",
+  "edit": "Modifier le projet",
+  "search": "Rechercher par Nom ou Description",
+  "name": "Nom",
+  "description": "Description",
+  "auteurs": "Auteurs",
+  "editeurs": "Éditeurs",
+  "detail": "Détail du projet",
+  "confirmDelete": "Confirmer la suppression",
+  "deleteConfirm": "Êtes-vous sûr de vouloir supprimer le projet \"{{name}}\" ?",
+  "relatedData": "Données associées",
+    "all": "Tous les projets",
+    "noCurrentProject": "Aucun projet sélectionné.",
+    "joined": "Projets auxquels je participe",
+    "created": "Projets que j'ai créés",
+    "auteursTooltip": "Sélectionnez les auteurs du projet. Seuls les administrateurs du système peuvent être sélectionnés. Les auteurs ont un contrôle total (ajout, modification, suppression) sur tous les modules du projet sans passer par un processus de validation.",
+    "editeursTooltip": "Sélectionnez les éditeurs du projet. Les éditeurs doivent faire valider leurs actions dans les modules par les auteurs, sauf si des permissions spécifiques leur sont accordées."
+}
+
+
+
+
+
+}

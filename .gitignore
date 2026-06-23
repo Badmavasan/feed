@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Builds
+**/.next/
+**/dist/
+**/out/
+
+# Env
+.env
+.env.local
+**/.env
+**/.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Prisma generated client
+**/generated/
+
+# Uploaded user content (keep the folder, ignore contents)
+backend/uploads/**
+!backend/uploads/.gitkeep
+
+# Misc
+.DS_Store
+.idea/
+.vscode/
+*.tsbuildinfo
