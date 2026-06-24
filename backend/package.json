@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
+    "seed:algopython": "node prisma/seed_algopython.js",
     "postinstall": "prisma generate",
     "typeorm": "typeorm",
     "migration:generate": "npm run typeorm migration:generate -- -d src/data-source.js src/migration/Init",
