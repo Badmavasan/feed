@@ -12,6 +12,7 @@ import CustomMultiSelect from "@/components/CustomMultiSelect";
 import useSWR, { mutate } from 'swr';
 import axios from '@/utils/axiosInstance';
 import { fetcher } from '@/utils/fetcher';
+import { assetUrl } from '@/utils/assetUrl';
 import {
     DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragEndEvent
 } from "@dnd-kit/core";
@@ -43,7 +44,7 @@ function renderComponentPreview(component: FeedbackComponent) {
         case "Image":
             return (
                 <Box>
-                    <img src={content} alt="Image" style={{ maxHeight: "80px" }} />
+                    <img src={assetUrl(content)} alt="Image" style={{ maxHeight: "80px" }} />
                 </Box>
             );
         case "Code":

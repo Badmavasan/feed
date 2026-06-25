@@ -7,6 +7,10 @@ WORKDIR /app
 ARG NEXT_PUBLIC_API_BASE_URL=http://localhost:3301
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
 
+# Sub-path the app is served under behind a reverse proxy (e.g. /feed). Empty = root.
+ARG NEXT_PUBLIC_BASE_PATH=
+ENV NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH
+
 # Next.js freezes rewrite destinations into the build manifest at build time,
 # so the server-side backend proxy target must be baked here too.
 ARG BACKEND_INTERNAL_URL=http://backend:3001

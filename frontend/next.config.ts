@@ -4,8 +4,12 @@ import nextI18NextConfig from './next-i18next.config.js';
 // 从配置中解构出 i18n
 const { i18n } = nextI18NextConfig as { i18n: NextConfig['i18n'] };
 
+// Sub-path the app is served under (e.g. "/feed" behind nginx). Baked at build time.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  basePath: basePath || undefined,
   eslint: {
     ignoreDuringBuilds: true,
   },

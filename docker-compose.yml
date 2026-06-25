@@ -44,6 +44,7 @@ services:
       args:
         NEXT_PUBLIC_API_BASE_URL: ${BACKEND_PUBLIC_URL:-http://localhost:3301}
         BACKEND_INTERNAL_URL: http://backend:3001
+        NEXT_PUBLIC_BASE_PATH: ${FRONTEND_BASE_PATH:-}
     container_name: feedback_frontend
     restart: unless-stopped
     depends_on:
@@ -52,6 +53,8 @@ services:
       # Server-side rewrite target (inside the docker network)
       BACKEND_INTERNAL_URL: http://backend:3001
       NEXT_PUBLIC_API_BASE_URL: ${BACKEND_PUBLIC_URL:-http://localhost:3301}
+      # Must match the build arg so `next start` serves assets under the same prefix
+      NEXT_PUBLIC_BASE_PATH: ${FRONTEND_BASE_PATH:-}
     ports:
       - "${FRONTEND_PORT:-3300}:3000"
 

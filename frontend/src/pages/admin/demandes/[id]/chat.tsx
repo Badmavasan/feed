@@ -9,6 +9,7 @@ import {
 import {ArrowBackIcon, ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons';
 import { useProjectContext } from '@/contexts/ProjectContext';
 import { useAuthContext } from '@/contexts/AuthContext';
+import { assetUrl } from '@/utils/assetUrl';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 
@@ -174,7 +175,7 @@ export default function AdminChatPage() {
                                     >
                                         {!isSystem && (
                                             <HStack mb={1} spacing={2} align="center">
-                                                <Avatar size="xs" src={msg.sender?.avatar_url || ''} />
+                                                <Avatar size="xs" src={assetUrl(msg.sender?.avatar_url)} />
                                                 <Text fontSize="sm" fontWeight="bold">{msg.sender?.name || 'Inconnu'}</Text>
                                                 <Text fontSize="xs" color="gray.700">{dayjs(msg.createdAt).format('HH:mm')}</Text>
                                             </HStack>

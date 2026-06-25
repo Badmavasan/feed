@@ -22,6 +22,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import axiosInstance from "@/utils/axiosInstance";
 import axios from "axios";
+import { assetUrl, withBasePath } from "@/utils/assetUrl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useAuthContext } from "@/contexts/AuthContext";
 import {useProjectContext} from "@/contexts/ProjectContext";
@@ -121,7 +122,7 @@ export default function LoginForm() {
                     {t("login.heading")}
                 </Heading>
                 <img
-                    src="/login-illustration.png"
+                    src={assetUrl("/login-illustration.png")}
                     alt="Illustration"
                     style={{ maxWidth: "300px", objectFit: "contain", marginTop: "1rem" }}
                 />
@@ -182,7 +183,7 @@ export default function LoginForm() {
 
                         <Text textAlign="center" fontSize="sm">
                             {t("login.noAccount")}{" "}
-                            <Link href="/register" color="blue.500">
+                            <Link href={withBasePath("/register")} color="blue.500">
                                 {t("login.register")}
                             </Link>
                         </Text>

@@ -4,6 +4,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { withBasePath } from "@/utils/assetUrl";
 
 export default function RegisterForm() {
     const [email, setEmail] = useState("");
@@ -87,7 +88,7 @@ export default function RegisterForm() {
                     <Button colorScheme="blue" onClick={handleRegister}>S’inscrire</Button>
 
                     <Text fontSize="sm" textAlign="center">
-                        Déjà un compte ? <Link color="blue.500" href="/login">Se connecter</Link>
+                        Déjà un compte ? <Link color="blue.500" href={withBasePath("/login")}>Se connecter</Link>
                     </Text>
                 </VStack>
             </Box>

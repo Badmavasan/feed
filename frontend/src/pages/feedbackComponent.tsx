@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import useSWR from "swr";
 import axios from '@/utils/axiosInstance';
 import { fetcher } from '@/utils/fetcher';
+import { assetUrl } from '@/utils/assetUrl';
 import CustomMultiSelect from '@/components/CustomMultiSelect';
 import { Editor } from '@monaco-editor/react';
 
@@ -703,7 +704,7 @@ function FeedbackComponentPage() {
                                     )}
                                     {viewingItem.type === 'Image' && (
                                         viewingItem.content ? (
-                                            <Image src={viewingItem.content} alt="preview" maxH="300px" mt={2} borderRadius="md" />
+                                            <Image src={assetUrl(viewingItem.content)} alt="preview" maxH="300px" mt={2} borderRadius="md" />
                                         ) : (
                                             <Text color="gray.500" fontStyle="italic">{t("component.form.none")}</Text>
                                         )

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import withAuthProtection from "@/hoc/withAuthProtection";
+import { withBasePath } from "@/utils/assetUrl";
 
 function RegisterForm() {
     const [email, setEmail] = useState("");
@@ -89,7 +90,7 @@ function RegisterForm() {
 
                     <Text fontSize="sm" textAlign="center" w="full">
                         Vous avez déjà un compte ?{" "}
-                        <Link href="/login" color="blue.500">Se connecter</Link>
+                        <Link href={withBasePath("/login")} color="blue.500">Se connecter</Link>
                     </Text>
                 </VStack>
             </Box>

@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect, ChangeEvent } from "react";
 import { storageService } from "@/utils/storageService";
+import { assetUrl } from "@/utils/assetUrl";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
@@ -129,7 +130,7 @@ const ProfilePage = () => {
 
                     <FormControl>
                         <FormLabel>Profile Picture</FormLabel>
-                        <Avatar size="xl" src={user.avatarUrl} name={user.name || "User"}>
+                        <Avatar size="xl" src={assetUrl(user.avatarUrl)} name={user.name || "User"}>
                             {user.avatarUrl && (
                                 <AvatarBadge
                                     as={IconButton}

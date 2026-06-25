@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { withBasePath } from '@/utils/assetUrl';
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001',
@@ -38,7 +39,7 @@ axiosInstance.interceptors.response.use(
             // Avoid repeated jumps or infinite loops
             if (typeof window !== 'undefined' && !window.location.pathname.includes("/login")) {
                 alert("Your session has expired. Please log in again.");
-                window.location.href = "/login";
+                window.location.href = withBasePath("/login");
             }
         }
 
